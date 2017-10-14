@@ -3,6 +3,10 @@ watch = require('gulp-watch'),
 browserSync = require('browser-sync').create();
 
 gulp.task('watch', () => {
+    gulp.start('icons');
+    gulp.start('styles');
+    gulp.start('scripts');
+
     browserSync.init({
       notify: false,
       server: {
@@ -30,6 +34,6 @@ gulp.task('cssInject', ['styles'], () => {
 });
 
 
-gulp.task('scriptsRefresh', ['scripts'],() => {
+gulp.task('scriptsRefresh', ['scripts'], () => {
   browserSync.reload();
 });
